@@ -161,7 +161,7 @@ export class AuthService {
       const hashed_refresh_token = await bcrypt.hash(refreshToken, 7);
       await this.updateRefreshToken(user.id, hashed_refresh_token);
 
-      res.cookie("adminRefresh_token", refreshToken, {
+      res.cookie("refreshToken", refreshToken, {
         maxAge: Number(process.env.COOKIE_TIME),
         httpOnly: true,
       });
